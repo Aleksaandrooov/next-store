@@ -1,0 +1,266 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("POSTGRES_URL")
+    directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model User {
+    id Int @id @unique @default(autoincrement())
+
+    fullName String
+    email    String    @unique
+    password String
+    role     UserRole  @default(USER)
+    verified DateTime?
+
+    provider   String?
+    providerId String?
+
+    createdAt        DateTime           @default(now())
+    updateAt         DateTime           @updatedAt
+    cart             Cart?
+    favorites        Favorites?
+    order            Order[]
+    verificationCode VerificationCode[]
+}
+
+model Category {
+    id   Int    @id @unique @default(autoincrement())
+    name String @unique
+
+    img   String
+    price String
+
+    product  Product[]
+    model    Model[]
+    memory   Memory[]
+    diagonal Diagonal[]
+    memoryOp MemoryOp[]
+    size     Size[]
+    color    Color[]
+    procesor Procesor[]
+}
+
+model Model {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+
+    product Product[]
+}
+
+model Memory {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model MemoryOp {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model Size {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model Color {
+    id        Int    @id @unique @default(autoincrement())
+    name      String
+    colorName String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model Diagonal {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model Procesor {
+    id   Int    @id @unique @default(autoincrement())
+    name String
+
+    product Product[]
+
+    category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+}
+
+model Img {
+    id Int @id @unique @default(autoincrement())
+
+    img     String[]
+    product Product[]
+}
+
+model Product {
+    id     Int    @id @unique @default(autoincrement())
+    title  String
+    price  Int
+    rating Int
+
+    Category   Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+
+    Memory   Memory? @relation(fields: [memoryId], references: [id])
+    memoryId Int?
+
+    Model   Model @relation(fields: [modelId], references: [id])
+    modelId Int
+
+    Img   Img? @relation(fields: [imgId], references: [id])
+    imgId Int
+
+    MemoryOp   MemoryOp? @relation(fields: [memoryOpId], references: [id])
+    memoryOpId Int?
+
+    Size   Size? @relation(fields: [sizeId], references: [id])
+    sizeId Int?
+
+    Color   Color? @relation(fields: [colorId], references: [id])
+    colorId Int?
+
+    Procesor   Procesor? @relation(fields: [procesorId], references: [id])
+    procesorId Int?
+
+    Diagonal   Diagonal? @relation(fields: [diagonalId], references: [id])
+    diagonalId Int?
+
+    cartItem      CartItem[]
+    favoritesItem FavoritesItem[]
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+}
+
+model Cart {
+    id Int @id @unique @default(autoincrement())
+
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?  @unique
+
+    token String
+
+    totalAmount Int @default(0)
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+
+    items CartItem[]
+}
+
+model CartItem {
+    id Int @id @default(autoincrement())
+
+    productItem   Product @relation(fields: [productItemId], references: [id])
+    productItemId Int
+
+    Cart   Cart @relation(fields: [cartId], references: [id])
+    cartId Int
+
+    countItem Int
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+}
+
+model Favorites {
+    id Int @id @unique @default(autoincrement())
+
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?  @unique
+
+    token String
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+
+    items FavoritesItem[]
+}
+
+model FavoritesItem {
+    id Int @id @default(autoincrement())
+
+    productItem   Product @relation(fields: [productItemIt], references: [id])
+    productItemIt Int
+
+    Favorites   Favorites @relation(fields: [favoritesId], references: [id])
+    favoritesId Int
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+}
+
+model Order {
+    id Int @id @default(autoincrement())
+
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?
+
+    token String
+
+    totalAmount Int
+    paymentId   String?
+    status      String?
+
+    items Json
+
+    fullName String
+    email    String
+    number   String
+    address  String?
+    pod      String?
+    heig     String?
+    cv       String?
+    NameData String?
+    NameTime String?
+
+    createdAt DateTime @default(now())
+    updateAt  DateTime @updatedAt
+}
+
+model VerificationCode {
+    id Int @id @default(autoincrement())
+
+    user   User @relation(fields: [userId], references: [id])
+    userId Int  @unique
+
+    code String
+
+    expiredAt DateTime @default(now())
+}
+
+enum UserRole {
+    ADMIN
+    USER
+}
