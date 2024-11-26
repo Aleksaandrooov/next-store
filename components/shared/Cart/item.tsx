@@ -113,7 +113,6 @@ export const Item: React.FC<Props> = ({ item, onChangeItem, onCheked }) => {
       <Checkbox
         checked={onCheked.has(item.id) && true}
         onCheckedChange={() => onChangeItem(item.id)}
-        defaultChecked
         id={String(item.id)}
       />
       <div className="flex items-start justify-center mx-6 min-w-[52px] max-sm:max-w-[60px] max-h-[80px] max-md:mx-2">

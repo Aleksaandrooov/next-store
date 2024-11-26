@@ -35,14 +35,16 @@ export const CartButton: React.FC<Props> = ({ className, model }) => {
   return (
     <div className={className}>
       <SearchInput model={model} />
-      <Link href="/favorites" className="max-xl:hidden">
-        <Button
-          className=" group relative hover:bg-black transition hover:text-white"
-          variant="outline">
-          <Heart className="" />
-          {CountFavorites > 0 && CountFavorites}
-        </Button>
-      </Link>
+      {session && (
+        <Link href="/favorites" className="max-xl:hidden">
+          <Button
+            className=" group relative hover:bg-black transition hover:text-white"
+            variant="outline">
+            <Heart className="" />
+            {CountFavorites > 0 && CountFavorites}
+          </Button>
+        </Link>
+      )}
       <div className="max-xl:hidden">
         <Link href="/cart">
           <Button

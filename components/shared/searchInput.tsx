@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Search, X } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ProductCartSearch } from './productCartSearch';
 import { Api } from '@/app/services/apiClient';
 import { useDebounce } from 'react-use';
@@ -21,6 +21,7 @@ export const SearchInput: React.FC<Props> = ({ className, model }) => {
   const [focused, setFocused] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState<ProductsTabl[]>([]);
+  const ref = useRef(null);
 
   useDebounce(
     () => {
@@ -37,12 +38,32 @@ export const SearchInput: React.FC<Props> = ({ className, model }) => {
     setSearchQuery('');
   };
 
+  useEffect(() => {
+    scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    if (!focused) return;
+    function clickAnd(e: MouseEvent) {
+      if (ref.current && !e.composedPath().includes(ref.current)) {
+        setFocused(false);
+      }
+    }
+    document.body.addEventListener('click', clickAnd);
+
+    return () => {
+      document.body.removeEventListener('click', clickAnd);
+    };
+  }, [focused]);
+
   return (
-    <RemoveScroll enabled={focused}>
+    <RemoveScroll ref={ref} className="" enabled={focused}>
       {focused && (
-        <div
-          onClick={() => setFocused(false)}
-          className="fixed top-32 left-0 bottom-0 right-0 bg-black/50 z-30"></div>
+        <div className="">
+          <div
+            onClick={() => setFocused(false)}
+            className="fixed top-32 left-0 bottom-0 right-0 bg-black/50 z-30"></div>
+        </div>
       )}
       <Button
         onClick={() => setFocused((prev) => !prev)}
@@ -55,11 +76,11 @@ export const SearchInput: React.FC<Props> = ({ className, model }) => {
       </Button>
       <div
         className={cn(
-          'absolute left-0 right-0 top-[73px] pointer-events-none z-50 opacity-0',
+          'fixed left-0 right-0 xl:top-[105px] max-xl:top-[73px] pointer-events-none z-50 opacity-0',
           focused ? 'opacity-100 pointer-events-auto' : '',
         )}>
-        <div className={cn('flex relative flex-1 justify-between z-30', className)}>
-          <div className="right-0 bg-white left-0 fixed">
+        <div className={cn('flex flex-1 justify-between z-30', className)}>
+          <div className="right-0 bg-white left-0 absolute">
             <div className="flex relative h-16 max-w-[1000px] mx-auto">
               <Search className="absolute top-1/2 -translate-y-1/2 left-3 h-5 text-gray-600" />
               <input

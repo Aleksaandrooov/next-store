@@ -20,7 +20,7 @@ export const CartPrices: React.FC<Props> = ({ className }) => {
   const { data: session } = useSession();
   const { totalAmount, totalCount, CartItems } = useSelector((state: RootState) => state.cart);
 
-  if (!CartItems) {
+  if (!CartItems.length) {
     return <></>;
   }
 
