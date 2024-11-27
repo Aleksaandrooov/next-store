@@ -2,7 +2,6 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { Container } from './container';
 import { prisma } from '@/prisma/prisma-client';
-import Link from 'next/link';
 import { AtSign } from 'lucide-react';
 
 interface Props {
