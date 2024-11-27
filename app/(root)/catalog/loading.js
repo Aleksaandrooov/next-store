@@ -11,7 +11,7 @@ export default function Loading() {
         </Container>
       </div>
       <Container className="max-w-[2000px] h-full flex">
-        <div className="w-[950px] h-full mr-10 max-xl:hidden">
+        <div className="w-[400px] h-full mr-12 max-xl:hidden">
           <Skeleton className="w-28 h-8 mt-3" />
           <div className="flex flex-col mt-4 gap-5">
             {[...Array(4)].map((_, i) => (
