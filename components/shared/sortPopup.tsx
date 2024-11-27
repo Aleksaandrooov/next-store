@@ -39,15 +39,14 @@ export const SortPopup: React.FC<Props> = ({ className }) => {
   }, [isOpen]);
 
   return (
-    <div className={cn('gap-1 h-[28px]', className)}>
+    <div ref={ref} className={cn('gap-1 h-[28px]', className)}>
       <div
-        onClick={() => setIsOpen(true)}
+        onClick={() => setIsOpen((prev) => !prev)}
         className="cursor-pointer mt-1 flex gap-2 items-center justify-end max-w-[200px]">
         <div className="font-medium max-sm:hidden">Cортировка:</div>
         <b className="text-primary underline text-nowrap">{sortItem.name}</b>
       </div>
       <div
-        ref={ref}
         className={cn(
           'w-full flex flex-col translate-y-4 transition pointer-events-none bg-white shadow-lg relative z-50 opacity-0 rounded-sm my-2',
           isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : '',

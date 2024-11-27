@@ -111,7 +111,7 @@ export const ProductCart: React.FC<ProductsTabl> = ({
   return (
     <div
       className={cn(
-        'text-center h-[400px] relative group flex flex-col w-[300px] max-lg:w-[250px] bg-white max-lg:h-[340px] max-[590px]:h-[310px] max-[590px]:w-[190px]',
+        'text-center h-[400px] relative group flex flex-col w-[300px] max-lg:w-[250px] bg-white max-lg:h-[355px] max-[590px]:h-[310px] max-[590px]:w-[190px]',
         className,
       )}>
       <div className="group-hover:z-10 group-hover:bg-white group-hover:shadow-lg h-auto">

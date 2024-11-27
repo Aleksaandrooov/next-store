@@ -13,12 +13,12 @@ type Props = Category & {
 export const CategoriesItems: React.FC<Props> = async ({ id, name }) => {
   return (
     <div className="group">
-      <Link
+      <a
         href={'/catalog?category=' + id + '&'}
         key={id}
         className="header__categories flex items-center font-medium px-2 py-2 cursor-pointer">
         <div>{name}</div>
-      </Link>
+      </a>
       {/* <div className="invisible transition pointer-events-none group-hover:pointer-events-auto group-hover:visible absolute top-[49px] left-0 right-0 min-w-max z-50 shadow-xl">
         <div className="h-6 opacity-0"></div>
         <div className="transition duration-1000 bg-white">

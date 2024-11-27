@@ -111,7 +111,7 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
       </div>
       <div className="xl:max-w-[550px] py-5 gap-3 flex-col flex max-md:pt-0 w-full">
         <div className="flex justify-between">
-          <div className="font-semibold min-h-[100px] text-2xl max-w-[400px] text-wrap flex max-md:text-lg">
+          <div className="font-semibold min-h-[100px] max-md:min-h-[70px] text-2xl max-w-[400px] text-wrap flex max-md:text-lg">
             {product.title}
             {product.sizeId ? `, ${product.Size?.name},` : ''}{' '}
             {product.MemoryOp ? ` ${product.MemoryOp.name},` : ''} {product.Memory?.name}
@@ -228,7 +228,7 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
             </div>
           </div>
         )}
-        <div className="flex justify-between border-t items-center border-gray-200 mt-7 pt-7">
+        <div className="flex justify-between border-t items-center border-gray-200 mt-7 max-md:mt-2 pt-7">
           <div className="text-3xl font-medium">{toStringPrice(product.price)} ₽</div>
           <div className="bg-gray-400 opacity-80 text-sm text-white py-[2px] px-3 rounded-sm">
             Гарантия

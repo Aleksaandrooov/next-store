@@ -22,12 +22,12 @@ export const Footer: React.FC<Props> = async ({ className }) => {
         <div className="flex flex-wrap gap-3 justify-center py-6 border-b border-gray-500">
           <div className="border-r pr-3">Каталог</div>
           {category.map((obj) => (
-            <Link
+            <a
               href={'/catalog?category=' + obj.id}
               key={obj.id}
               className="text-gray-500 transition-all cursor-pointer hover:text-white ">
               {obj.name}
-            </Link>
+            </a>
           ))}
         </div>
         <div className="flex py-4 justify-between px-4">

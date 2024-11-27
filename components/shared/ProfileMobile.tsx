@@ -47,8 +47,8 @@ export const ProfileMobile: React.FC<Props> = ({}) => {
             <Link
               key={i}
               href={obj.url}
-              className="flex justify-between p-3 mx-4 my-1 transition-all rounded-md text-lg cursor-pointer hover:bg-slate-100">
-              <DrawerClose className="flex justify-between w-full">
+              className="flex justify-between mx-4 my-1 transition-all rounded-md text-lg cursor-pointer hover:bg-slate-100">
+              <DrawerClose className="flex p-3 justify-between w-full">
                 <div className="">{obj.name}</div>
                 {i == 0 && <User color="gray" />}
                 {i == 1 && <Heart color="gray" />}
