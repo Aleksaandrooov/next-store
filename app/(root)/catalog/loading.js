@@ -20,11 +20,11 @@ export default function Loading() {
             <Skeleton className="w-full h-40" />
           </div>
         </div>
-        <div className="flex flex-wrap max-xl:px-5 justify-around mt-8 max-sm:px-0 max-xl:mx-auto max-w-[1380px] mx-auto max-xl:max-w-[950px] max-lg:max-w-[790px] max-[840px]:max-w-[540px] max-[590px]:max-w-[440px]">
+        <div className="flex flex-wrap max-xl:px-5 justify-around mt-6 max-sm:px-0 max-xl:mx-auto max-w-[1380px] mx-auto max-xl:max-w-[950px] max-lg:max-w-[790px] max-[840px]:max-w-[540px] max-[590px]:max-w-[440px]">
           {[...Array(12)].map((_, i) => (
             <Skeleton
               key={i}
-              className="h-[380px] mb-8 w-[280px] max-lg:w-[230px] max-lg:h-[300px] max-[590px]:h-[250px] max-[590px]:w-[170px]"
+              className="h-[380px] max-[590px]:mb-4 max w-[280px] max-lg:w-[230px] max-lg:h-[300px] max-[590px]:h-[250px] max-[590px]:w-[150px]"
             />
           ))}
         </div>

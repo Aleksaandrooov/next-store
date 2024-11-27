@@ -80,7 +80,7 @@ export default async function Home({ searchParams }: PageProps) {
       <Container className="max-w-[2000px] pr-0 max-sm:pl-1">
         <div className="flex h-full">
           <Filter {...filterFetch} />
-          <div className="flex-1 py-12">
+          <div className="flex-1 pb-12 pt-6">
             <div className="flex flex-wrap max-xl:px-5 max-sm:px-0 max-xl:mx-auto max-w-[1400px] mx-auto max-xl:max-w-[950px] max-lg:max-w-[790px] max-[840px]:max-w-[540px] max-[590px]:max-w-[440px]">
               {allProducts.map((obj) => (
                 <ProductCart key={obj.id} {...obj} />
