@@ -52,7 +52,7 @@ export const CartPrices: React.FC<Props> = ({ className }) => {
             variant="outline"
             disabled={totalAmount == 0 || !session}
             className="max-w-[400px] w-full text-base">
-            Оформить заказ
+            {session ? 'Оформить заказ' : 'Требуется авторизация'}
           </Button>
         </Link>
       </div>
