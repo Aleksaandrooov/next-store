@@ -105,8 +105,8 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
   }, []);
 
   return (
-    <div className="flex gap-10 justify-center max-lg:flex-wrap">
-      <div className="w-[650px] h-[550px] flex mt-10 max-xl:mt-0 max-xl:h-[430px] max-md:w-[360px]">
+    <div className="flex gap-10 max-sm:gap-7 justify-center max-lg:flex-wrap">
+      <div className="w-[650px] h-[550px] flex mt-10 max-xl:mt-0 max-xl:h-[430px] max-md:w-[360px] max-sm:w-[310px] max-[370px]:w-[270px]">
         <ImgProduct img={product.Img?.img} className="" />
       </div>
       <div className="xl:max-w-[550px] py-5 gap-3 flex-col flex max-md:pt-0 w-full">
@@ -137,7 +137,9 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
         </div>
         {product.colorId && (
           <div className="flex gap-8 items-center min-h-[60px] max-md:gap-4">
-            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px]">Цвет</div>
+            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px] max-sm:w-[80px]">
+              Цвет
+            </div>
             <div className="flex gap-4 items-center">
               {colors.map((products) => (
                 <Link
@@ -160,7 +162,7 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
         )}
         {product.sizeId && (
           <div className="flex gap-8 items-center min-h-[60px] max-md:gap-4">
-            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px]">
+            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px] max-sm:w-[80px]">
               Экран
             </div>
             <div className="flex gap-5">
@@ -184,10 +186,10 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
         )}
         {product.memoryId && (
           <div className="flex gap-8 items-center min-h-[60px] max-md:gap-4">
-            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px]">
+            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px] max-sm:w-[80px]">
               {product.memoryOpId ? <>Объём SSD</> : <>Память</>}
             </div>
-            <div className="flex gap-5">
+            <div className="flex gap-5 max-xl:flex-wrap">
               {memory.map((products) => (
                 <Link
                   href={`/catalog/product/${products.id}`}
@@ -208,7 +210,9 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
         )}
         {product.memoryOpId && (
           <div className="flex gap-8 items-center min-h-[60px] max-md:gap-4">
-            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px]">ОЗУ</div>
+            <div className="w-[120px] border-r text-lg max-md:text-base max-md:w-[100px] max-sm:w-[80px]">
+              ОЗУ
+            </div>
             <div className="flex gap-5">
               {memoryOp.map((products) => (
                 <Link
@@ -229,7 +233,9 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
           </div>
         )}
         <div className="flex justify-between border-t items-center border-gray-200 mt-7 max-md:mt-2 pt-7">
-          <div className="text-3xl font-medium">{toStringPrice(product.price)} ₽</div>
+          <div className="text-3xl font-medium max-sm:text-2xl">
+            {toStringPrice(product.price)} ₽
+          </div>
           <div className="bg-gray-400 opacity-80 text-sm text-white py-[2px] px-3 rounded-sm">
             Гарантия
           </div>
@@ -237,7 +243,7 @@ export const Product: React.FC<Props> = ({ product, andProducts }) => {
         <Button
           onClick={() => onAddItem()}
           loading={loading}
-          className="mt-3 bg-primary text-lg text-center rounded-sm cursor-pointer py-6 text-white">
+          className="mt-3 bg-primary text-lg text-center rounded-sm cursor-pointer py-6 max-sm:text-base max-sm:mt-1 text-white">
           Добавить в корзину
         </Button>
         {/* <Button

@@ -54,7 +54,7 @@ export const Reklama: React.FC<Props> = ({}) => {
             <div className={obj.bg}>
               <Link href={obj.url} className="flex justify-center items-center">
                 <img
-                  className="w-max max-xl:max-h-[500px] max-lg:max-h-[400px] max-md:max-h-[300px] max-sm:max-w-[1000px] max-sm:max-h-[200px] max-[500px]:max-h-[170px]"
+                  className="w-max max-xl:max-h-[500px] max-lg:max-h-[400px] max-md:max-h-[300px] max-sm:max-w-[1000px] max-[390px]:max-w-[600px] max-sm:max-h-[200px] max-[500px]:max-h-[170px]"
                   src={obj.img}
                 />
               </Link>

@@ -15,7 +15,7 @@ interface Props {
 
 export const SwiperPoster: React.FC<Props> = ({ product }) => {
   return (
-    <div className="mt-10 min-[1450px]:w-[1360px] min-[1300px]:w-[1220px] min-[1150px]:w-[1050px] min-[1050px]:w-[900px] min-[780px]:w-[700px] min-[600px]:w-[470px] min-[0px]:w-[330px]">
+    <div className="mt-10 min-[1450px]:w-[1360px] min-[1300px]:w-[1220px] min-[1150px]:w-[1050px] min-[1050px]:w-[900px] min-[780px]:w-[700px] min-[600px]:w-[470px] min-[380px]:w-[330px] min-[0px]:w-[290px]">
       <Title
         text="Недавно просмотренные"
         className="mb-5 ml-10 md:text-left max-[600px]:text-xl max-[600px]:font-semibold max-[600px]:mx-auto max-[600px]:mb-2"

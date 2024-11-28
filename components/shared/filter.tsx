@@ -199,8 +199,8 @@ export const Filter: React.FC<Props> = ({
       </div>
       <div
         onClick={() => isOpen((prev) => !prev)}
-        className="cursor-pointer absolute z-10 flex gap-2 items-center mt-4 max-sm:-mt-11 max-sm:ml-4">
-        <h1 className="font-semibold text-lg">Фильтры</h1>
+        className="cursor-pointer absolute z-10 flex gap-2 max-sm:gap-1 items-center mt-4 max-sm:-mt-11 max-sm:ml-4">
+        <h1 className="font-semibold text-lg max-sm:text-sm">Фильтры</h1>
         <ListFilter className={cn('transition-all', open ? 'opacity-0' : '')} />
         <X className={cn('-ml-8 transition-all', !open ? 'opacity-0' : '')} />
       </div>

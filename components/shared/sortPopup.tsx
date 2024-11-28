@@ -44,7 +44,7 @@ export const SortPopup: React.FC<Props> = ({ className }) => {
         onClick={() => setIsOpen((prev) => !prev)}
         className="cursor-pointer mt-1 flex gap-2 items-center justify-end max-w-[200px]">
         <div className="font-medium max-sm:hidden">Cортировка:</div>
-        <b className="text-primary underline text-nowrap">{sortItem.name}</b>
+        <b className="text-primary underline text-nowrap max-sm:text-sm">{sortItem.name}</b>
       </div>
       <div
         className={cn(
@@ -56,7 +56,7 @@ export const SortPopup: React.FC<Props> = ({ className }) => {
             key={obj.id}
             onClick={() => setItem(obj)}
             className={cn(
-              'py-[6px] px-3 cursor-pointer transition-all max-[590px]:text-sm first:rounded-t-sm last:rounded-b-sm',
+              'py-[6px] px-3 cursor-pointer transition-all max-[590px]:text-sm first:rounded-t-sm last:rounded-b-sm text-nowrap',
               obj.id == sortItem.id ? 'bg-slate-200' : 'hover:bg-slate-200',
             )}>
             {obj.name}

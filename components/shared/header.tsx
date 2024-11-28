@@ -18,7 +18,7 @@ export const Header: React.FC<Props> = async ({ className }) => {
 
   return (
     <header className={cn('border-b', className)}>
-      <Container className="flex items-center justify-between py-4">
+      <Container className="flex items-center justify-between py-4 max-sm:px-6">
         <Link href="/">
           <div className="flex gap-2 items-center">
             <MonitorSmartphone size={34} strokeWidth={1} className="relative z-20" />

@@ -111,7 +111,7 @@ export const ProductCart: React.FC<ProductsTabl> = ({
   return (
     <div
       className={cn(
-        'text-center h-[400px] relative group flex flex-col w-[300px] max-lg:w-[250px] bg-white max-lg:h-[355px] max-[590px]:h-[310px] max-[590px]:w-[190px]',
+        'text-center h-[400px] relative group flex flex-col w-[300px] max-lg:w-[250px] bg-white max-lg:h-[355px] max-[590px]:h-[310px] max-[590px]:w-[170px]',
         className,
       )}>
       <div className="group-hover:z-10 group-hover:bg-white group-hover:shadow-lg h-auto">
@@ -139,11 +139,11 @@ export const ProductCart: React.FC<ProductsTabl> = ({
           </div>
         </div>
         <Link href={`catalog/product/${id}`}>
-          <div className="flex justify-center items-center pt-7 h-[270px] w-[250px] max-[590px]:w-[200px] mx-auto max-lg:max-h-[220px] max-[590px]:max-h-[190px]">
+          <div className="flex justify-center items-center pt-7 h-[270px] w-[250px] max-[590px]:w-[170px] mx-auto max-lg:max-h-[220px] max-[590px]:max-h-[190px]">
             <img
               src={Img?.img[0]}
               className={cn(
-                'max-w-[230px] max-h-[220px] group-hover:opacity-0 transition-all max-lg:max-h-[160px] max-lg:max-w-[190px] max-[590px]:max-h-[140px] max-[590px]:max-w-[180px]',
+                'max-w-[230px] max-h-[220px] group-hover:opacity-0 transition-all max-lg:max-h-[160px] max-lg:max-w-[190px] max-[590px]:max-h-[140px] max-[590px]:max-w-[170px]',
                 categoryId == 4 ? 'max-w-[270px]' : '',
               )}
               alt="Logo"
@@ -151,7 +151,7 @@ export const ProductCart: React.FC<ProductsTabl> = ({
             <img
               src={Img?.img[1]}
               className={cn(
-                'max-w-[220px] max-h-[240px] absolute opacity-0 group-hover:opacity-100 max-[590px]:max-h-[140px] max-[590px]:max-w-[180px] transition-all max-lg:max-h-[160px] max-lg:max-w-[190px]',
+                'max-w-[220px] max-h-[240px] absolute opacity-0 group-hover:opacity-100 max-[590px]:max-h-[140px] max-[590px]:max-w-[170px] transition-all max-lg:max-h-[160px] max-lg:max-w-[190px]',
                 categoryId == 4 ? 'max-w-[270px]' : '',
               )}
               alt="Logo"

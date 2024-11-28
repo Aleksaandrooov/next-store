@@ -33,7 +33,7 @@ export const ImgProduct: React.FC<Props> = ({ className, img }) => {
         slidesPerView={4}
         watchSlidesProgress={true}
         modules={[Navigation, Thumbs]}
-        className="mySwiper2 max-h-[400px] w-20 max-xl:h-16 max-xl:w-[280px]">
+        className="mySwiper2 max-h-[400px] w-20 max-xl:h-16 max-xl:w-[280px] max-sm:w-[240px]">
         {img?.map((obj, i) => (
           <SwiperSlide
             key={i}
@@ -50,11 +50,11 @@ export const ImgProduct: React.FC<Props> = ({ className, img }) => {
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[Navigation, Thumbs]}
-        className="mySwiper1 w-[500px] max-h-[420px] max-xl:max-h-[320px] max-md:w-[360px]">
+        className="mySwiper1 w-[500px] max-h-[420px] max-xl:max-h-[320px] max-md:w-[350px] max-sm:w-[320px] max-sm:max-h-[280px] max-[370px]:w-[270px]">
         {img?.map((obj, i) => (
           <SwiperSlide key={i} className="px-8">
             <div className="flex items-center justify-center h-full">
-              <img src={obj} className="max-h-full max-w-[350px]" />
+              <img src={obj} className="max-h-full max-w-[350px] max-[370px]:max-w-[260px]" />
             </div>
           </SwiperSlide>
         ))}

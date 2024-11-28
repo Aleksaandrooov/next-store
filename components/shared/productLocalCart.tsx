@@ -23,13 +23,13 @@ export const ProductLocalCart: React.FC<Props> = ({
   return (
     <div
       className={cn(
-        'text-center group bg-white h-[320px]  w-[210px] max-[600px]:w-[154px] max-[600px]:h-[250px]',
+        'text-center group bg-white h-[320px]  w-[210px] max-[600px]:w-[154px] max-[600px]:h-[250px] max-[380px]:w-[140px] max-[380px]:h-[230px]',
         className,
       )}>
       <Link href={`/catalog/product/${id}`}>
         <div
           className={cn(
-            'flex relative justify-center items-center px-6 pt-6 pb-2 h-[190px] max-[600px]:h-[150px] w-[200px] max-[600px]:pt-5 max-[600px]:w-[150px] max-[600px]:mb-0 mx-auto mb-2',
+            'flex relative justify-center items-center px-6 pt-6 pb-2 h-[190px] max-[600px]:h-[150px] w-[200px] max-[600px]:pt-5 max-[600px]:w-[150px] max-[600px]:mb-0 mx-auto mb-2 max-[380px]:w-[140px]',
             categoryId == 4 ? 'px-2' : '',
           )}>
           <img
@@ -39,12 +39,12 @@ export const ProductLocalCart: React.FC<Props> = ({
           />
           <img
             src={Img?.img[1]}
-            className="max-w-[170px] max-h-[170px] opacity-0 absolute group-hover:opacity-100 transition-all max-[600px]:max-h-[130px]"
+            className="max-w-[170px] max-[380px]:max-w-[120px] max-h-[170px] opacity-0 absolute group-hover:opacity-100 transition-all max-[600px]:max-h-[130px]"
             alt="Logo"
           />
         </div>
         <div className="flex flex-col">
-          <div className="h-[85px] px-4 font-extralight break-normal text-sm break-words  flex-auto max-[600px]:text-[13px] max-[600px]:h-[70px] max-[600px]:px-2">
+          <div className="h-[85px] max-[380px]:h-[56px] px-4 max-[380px]:text-xs font-extralight break-normal text-sm break-words  flex-auto max-[600px]:text-[13px] max-[600px]:h-[70px] max-[600px]:px-2">
             {title}
             {Size?.name ? `, ${Size.name},` : ''} {MemoryOp ? ` ${MemoryOp.name},` : ''}{' '}
             {Memory?.name}

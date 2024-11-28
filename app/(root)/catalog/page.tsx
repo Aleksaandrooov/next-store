@@ -72,18 +72,18 @@ export default async function Home({ searchParams }: PageProps) {
                   </div>
                 ))}
             </div>
-            <div className="max-lg:block hidden max-sm:mt-1 ml-4 max-sm:ml-28 text-lg max-md:text-base">
+            <div className="max-lg:block hidden max-sm:mt-[2px] ml-4 max-sm:ml-20 text-lg max-md:text-base">
               {titleFetch!.name}
             </div>
           </div>
           <SortPopup />
         </Container>
       </div>
-      <Container className="max-w-[2000px] pr-0 max-sm:pl-1">
+      <Container className="max-w-[2000px] pr-0 max-sm:pl-0">
         <div className="flex h-full">
           <Filter {...filterFetch} />
           <div className="flex-1 pb-12 pt-6">
-            <div className="flex flex-wrap max-xl:px-5 max-sm:px-0 max-xl:mx-auto max-w-[1400px] mx-auto max-xl:max-w-[950px] max-lg:max-w-[790px] max-[840px]:max-w-[540px] max-[590px]:max-w-[440px]">
+            <div className="flex flex-wrap max-xl:px-5 max-sm:px-0 max-xl:mx-auto max-w-[1400px] mx-auto max-xl:max-w-[950px] max-lg:max-w-[790px] max-[840px]:max-w-[540px] max-[590px]:max-w-[340px]">
               {allProducts.map((obj) => (
                 <ProductCart key={obj.id} {...obj} />
               ))}

@@ -58,7 +58,7 @@ export const Poster = () => {
   });
 
   return (
-    <Container className="mt-16 max-lg:mt-8 flex flex-col">
+    <Container className="mt-16 max-lg:mt-8 flex flex-col max-sm:px-4">
       <div
         ref={ref}
         className={cn(

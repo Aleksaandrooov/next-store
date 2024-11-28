@@ -41,7 +41,7 @@ export default async function ProductPage({ params }: PageProps) {
   if (!product) return notFound();
 
   return (
-    <Container className="flex flex-col my-10">
+    <Container className="flex flex-col my-10 max-sm:px-4 max-[360px]:px-2">
       <Product product={product} andProducts={andProducts} />
     </Container>
   );
