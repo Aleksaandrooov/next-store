@@ -47,13 +47,13 @@ export default async function Home({ searchParams }: PageProps) {
   return (
     <>
       <div className="mt-5 bg-white py-5 max-xl:py-2 max-xl:mt-0 shadow-lg shadow-black/5 relative">
-        <Container className="flex justify-between max-sm:justify-end items-center h-12">
+        <Container className="flex justify-between max-sm:justify-between items-center h-12">
           <div className="flex items-center font-semibold">
             <Title
               size="md"
               text="Каталог"
               className="border-r-2 border-gray-500 pr-4 max-xl:text-xl max-md:text-lg max-sm:hidden"></Title>
-            <div className="flex pl-4 max-sm:hidden">
+            <div className="flex pl-4 overflow-x-hidden max-lg:hidden">
               {!modelFetch.length && (
                 <Title
                   text={titleFetch!.name}
@@ -64,13 +64,15 @@ export default async function Home({ searchParams }: PageProps) {
               {modelFetch
                 ?.filter((_, i) => i < 4)
                 .map((obj, i) => (
-                  <div key={obj.id} className="text-[26px] max-xl:text-xl max-md:text-lg">
+                  <div
+                    key={obj.id}
+                    className="text-[26px] text-nowrap max-xl:text-xl max-md:text-lg">
                     {i == 0 ? '' : ', '}
                     {obj.name}
                   </div>
                 ))}
             </div>
-            <div className="max-sm:block hidden text-lg max-[590px]:text-base max-md:absolute border-r pr-2">
+            <div className="max-lg:block hidden max-sm:mt-1 ml-4 max-sm:ml-28 text-lg max-md:text-base">
               {titleFetch!.name}
             </div>
           </div>

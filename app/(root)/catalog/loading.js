@@ -11,9 +11,9 @@ export default function Loading() {
         </Container>
       </div>
       <Container className="max-w-[2000px] h-full flex">
-        <div className="w-[400px] h-full mr-12 max-xl:hidden">
+        <div className="w-[350px] h-full mr-8 max-xl:hidden">
           <Skeleton className="w-28 h-8 mt-3" />
-          <div className="flex flex-col mt-4 gap-5">
+          <div className="flex flex-col mt-4 gap-5 w-[350px]">
             {[...Array(4)].map((_, i) => (
               <Skeleton key={i} className="w-full h-14" />
             ))}
@@ -24,7 +24,7 @@ export default function Loading() {
           {[...Array(12)].map((_, i) => (
             <Skeleton
               key={i}
-              className="h-[380px] max-[590px]:mb-4 max w-[280px] max-lg:w-[230px] max-lg:h-[300px] max-[590px]:h-[250px] max-[590px]:w-[150px]"
+              className="h-[380px] mx-1 mb-6 max-[590px]:mb-4 max w-[280px] max-lg:w-[230px] max-lg:h-[300px] max-[590px]:h-[250px] max-[590px]:w-[150px]"
             />
           ))}
         </div>
