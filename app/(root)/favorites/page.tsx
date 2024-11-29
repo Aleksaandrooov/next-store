@@ -1,7 +1,6 @@
 import { Container } from '@/components/shared/container';
 import { FavoritesItems } from '@/components/shared/Favorites/FavoritesItems';
-import { Skeleton } from '@/components/ui/skeleton';
-import React, { Suspense } from 'react';
+import React from 'react';
 
 export default async function CartPage() {
   return (
