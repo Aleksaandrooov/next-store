@@ -104,10 +104,6 @@ export const Item: React.FC<Props> = ({ item, onChangeItem, onCheked }) => {
     };
   }, [open]);
 
-  useEffect(() => {
-    return () => onChangeItem(item.id);
-  }, []);
-
   return (
     <div className="flex py-7 border-b max-h-56">
       <Checkbox

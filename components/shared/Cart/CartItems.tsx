@@ -12,6 +12,7 @@ import { useSet } from 'react-use';
 import toast from 'react-hot-toast';
 import { CartAmountNUll } from './CartAmountNull';
 import { Trash2 } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface Props {
   className?: string;
@@ -54,15 +55,30 @@ export const CartItems: React.FC<Props> = ({ className }) => {
     );
   }, [cartItemChange, CartItems]);
 
+  const filter = CartItems.filter((obj) => !cartItemChange.has(obj.id)).length > 0;
+
+  useEffect(() => {
+    ChangeAll();
+  }, [CartItems]);
+
   if (status == 'loading') {
-    return <></>;
+    return (
+      <div className="flex-auto flex-col">
+        <Skeleton className="w-36 h-12 mb-16" />
+        <div className="flex justify-between">
+          <Skeleton className="w-24 h-8" />
+          <Skeleton className="w-32 h-8" />
+        </div>
+        {[...Array(3)].map((_, i) => (
+          <Skeleton key={i} className="w-full h-20 my-4 first:mt-6" />
+        ))}
+      </div>
+    );
   }
 
   if (CartItems.length == 0 && status == 'success') {
     return <CartAmountNUll />;
   }
-
-  const filter = CartItems.filter((obj) => !cartItemChange.has(obj.id)).length > 0;
 
   return (
     <div className={cn('', className)}>

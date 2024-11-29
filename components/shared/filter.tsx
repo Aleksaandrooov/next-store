@@ -208,8 +208,8 @@ export const Filter: React.FC<Props> = ({
         enabled={open && mediaQuery}
         ref={ref}
         className={cn(
-          'w-[320px] pt-12 pb-6 transition-all max-md:w-full max-xl:overflow-auto duration-400 max-xl:p-8 max-xl:w-[500px] max-xl:shadow-2xl max-xl:bg-white max-xl:z-50 max-xl:fixed max-xl:top-0 max-xl:bottom-0 max-xl:left-0',
-          !open ? '-ml-56 opacity-0 pointer-events-none' : '-ml-0 opacity-100 pointer-events-auto',
+          'w-[320px] pt-12 pb-6 transition-all max-md:w-full -ml-0 max-xl:overflow-auto duration-400 max-xl:p-8 max-xl:w-[500px] max-xl:shadow-2xl max-xl:bg-white max-xl:z-50 max-xl:fixed max-xl:top-0 max-xl:bottom-0 max-xl:left-0',
+          !open ? '-ml-56 opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto',
         )}>
         <div className="">
           <div className="flex justify-between xl:hidden items-center mb-14 max-xl:mb-4">
@@ -221,7 +221,11 @@ export const Filter: React.FC<Props> = ({
               onClick={() => isOpen(false)}
             />
           </div>
-          <div className={cn('flex flex-col gap-5 mt-6 h-full', !open ? 'hidden' : '')}>
+          <div
+            className={cn(
+              'flex flex-col gap-5 mt-6 h-full opacity-100 pointer-events-auto',
+              !open ? 'pointer-events-none' : '',
+            )}>
             {model?.length != 0 && (
               <FilterGroup
                 title="Модель"

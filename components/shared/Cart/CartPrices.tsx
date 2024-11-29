@@ -11,6 +11,7 @@ import { words } from '../lib/word-cals';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { dataTime } from './payment/dataMasiv';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface Props {
   className?: string;
@@ -21,7 +22,12 @@ export const CartPrices: React.FC<Props> = ({ className }) => {
   const { totalAmount, totalCount, CartItems } = useSelector((state: RootState) => state.cart);
 
   if (!CartItems.length) {
-    return <></>;
+    return (
+      <div className="w-[400px] mt-14 max-xl:w-full mx-auto max-xl:mt-0 max-md:mx-4 max-sm:mx-2">
+        <Skeleton className="h-20 max-md:mx-4" />
+        <Skeleton className="h-52 my-4 max-md:mx-4" />
+      </div>
+    );
   }
 
   return (
