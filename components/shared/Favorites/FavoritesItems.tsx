@@ -15,9 +15,8 @@ interface Props {
 }
 
 export const FavoritesItems: React.FC<Props> = ({ className }) => {
-  const { items, count } = useSelector((state: RootState) => state.favorites);
   const dispatch = useAppDispatch();
-  const { sortItem } = useSelector((state: RootState) => state.favorites);
+  const { sortItem, items, count } = useSelector((state: RootState) => state.favorites);
   const [isOpen, setOpen] = useState(false);
 
   const setItem = (obj: sort) => {
